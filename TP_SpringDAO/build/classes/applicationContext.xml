@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+"http://www.springframework.org/dtd/spring-beans.dtd"><beans>
+<bean id="ds_Adherent" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	<property name="driverClassName">
+		<value>com.mysql.jdbc.Driver</value>
+		</property>
+	<property name="url">
+		<value>jdbc:mysql://localhost:3306/bd_Spring_Biblio</value>
+	</property>
+	<property name="username">
+		<value>root</value>
+	</property>
+	<property name="password">
+		<value></value>
+	</property>
+</bean>
+
+<bean id="adherentDAO" class="com.formation.dao.AdherentDao">
+	<property name="dataSource" ref="ds_Adherent" />
+</bean>
+<bean id="gestionAdherent" class="com.formation.service.AdherentService">
+	<property name="dao" ref="adherentDAO" />
+</bean>
+</beans>
